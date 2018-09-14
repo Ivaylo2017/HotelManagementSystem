@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import ="com.langmore.model.Inventory"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,12 +8,14 @@
 <title>Room Detail</title>
 </head>
 <body>
-	<p>Use RoomsDao to call all images for a ceratin room based on user click from index.jsp</p>
-	<p>Add room description by calling DaoMethod</p>
-	<p> Add price</p>
-	
+<% Inventory inventory = (Inventory) request.getAttribute("room"); %>
+	<div id='roomInfo'>
+		<p><%= inventory.getImageUrl() %></p>
+		<p><%= inventory.getDescription() %></p>
+		<p><%= inventory.getPricePerUnit() %></p>
+	</div>
 	<div id='form'>
-		<form action='room/Booking' method='POST'>
+		<form action='book' method='POST'>
 			From: <input type='date' name='startdate'>
 			To:<input type='date' name='endDate'><br>
 			<input id='requestButton' type='submit' value='Request Quote'>

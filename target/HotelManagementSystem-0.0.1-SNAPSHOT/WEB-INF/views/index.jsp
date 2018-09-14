@@ -10,7 +10,8 @@
 <body>
 	<h2>Welcome to Langmore Hotel</h2>
 	<p> This page will display images of the hotel and allow guests to browse inventory</p>
-	<form id='form' style='align-bottom' action='/rooms/availRooms' method='POST'>
+	
+	<form id='form' style='align-bottom' action='availRooms' method='GET'>
 	select dates to check availability:<br>
 	from: <input type='date' name='startdate'>
 	to:<input type='date' name='endDate'>
