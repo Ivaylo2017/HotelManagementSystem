@@ -8,9 +8,10 @@
 </head>
 <body>
 	<div class="main">
-		<a href="#">History</a>
-		<a href="#">Make a reservation</a>
-		<a href="#">Edit my info</a>
+		<div><a href="#">History</a></div>
+		<div><a href="#">Make a reservation</a></div>
+		<div><a href="#">Edit my info</a></div> <!-- Implement -->
+		<div><a href="logout">Logout</a></div>
 	</div>
 </body>
 </html>

@@ -28,7 +28,7 @@
 <%-- 			 		<span>..............................Price: <strong><%= item.getPricePerUnit() %></strong></span> --%>
 			 		<p>Description:</p>
 			 		<p> <%= item.getDescription()%> </p>
-			 		<a href="/getDetail/id=${roomType }">Get More Details >></a>
+			 		<a href="/HotelManagementSystem/getDetail?id=${roomType}" name="${roomType}">Get More Details >></a>
 		 		</td>
 	 		</tr>
 		<% } %>

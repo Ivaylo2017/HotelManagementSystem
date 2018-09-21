@@ -4,10 +4,13 @@ com\langmore\model\RestaurantTable.class
 com\langmore\DAOI\UserDaoI.class
 com\langmore\model\Order.class
 com\langmore\DAO\InventoryDAO.class
+com\langmore\model\JBcrypt.class
 com\langmore\model\OrderDetails.class
 com\langmore\DAOI\SecurityDaoI.class
+com\langmore\DAO\UserDAO.class
 com\langmore\controller\HomeController.class
 com\langmore\model\Shuttle.class
+com\langmore\DAO\SecurityDAO.class
 com\langmore\model\Employee.class
 com\langmore\DAO\OracleConnection.class
 com\langmore\model\Inventory.class

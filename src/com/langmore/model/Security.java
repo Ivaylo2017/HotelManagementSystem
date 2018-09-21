@@ -3,13 +3,27 @@ package com.langmore.model;
 public class Security {
 
 	private int securityId;
-
-	private String username;
-
-	private String pass;
+	private String username, pass, userType;
+	
+	public Security() {	}
+	
+	public Security( String username, String password,String userT) {
+		this.username= username;
+		pass = password;
+		userType = userT;
+		
+	}
 	
 	public int getSecurityId() {
 		return securityId;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 	public String getUsername() {
@@ -28,12 +42,4 @@ public class Security {
 		this.pass = pass;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	private String userId;
 }

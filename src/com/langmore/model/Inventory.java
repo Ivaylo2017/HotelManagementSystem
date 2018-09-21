@@ -20,6 +20,10 @@ public class Inventory {
 		return itemId;
 	}
 	
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	
 	public double getPricePerUnit() {
 		return pricePerUnit;
 	}

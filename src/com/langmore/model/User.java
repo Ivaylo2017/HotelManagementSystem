@@ -1,10 +1,10 @@
 package com.langmore.model;
 
-public class User {
+public class User extends Security{
 
-	private int userId;
+	private String userId;
 	
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 

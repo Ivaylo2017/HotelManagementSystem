@@ -19,6 +19,7 @@ public class InventoryDAO extends OracleConnection{
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				Inventory in = new Inventory();
+				in.setItemId(rs.getInt("item_id"));
 				in.setImageUrl(rs.getString("image"));
 				in.setItemType(rs.getString("item_type"));
 				in.setDescription(rs.getString("description"));

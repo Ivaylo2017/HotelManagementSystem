@@ -9,7 +9,8 @@
 <title>Room Detail</title>
 </head>
 <body>
-<% Inventory inventory = (Inventory) request.getAttribute("room"); %>
+<% Inventory inventory = (Inventory) request.getAttribute("room");
+%>
 <c:set var="imageName" value="<%= inventory.getImageUrl()%>"/>
 
 	<div id='roomInfo'>
@@ -19,11 +20,15 @@
 	</div>
 	<div id='form'>
 		<form action='book' method='POST'>
+		Enter dates you'd like to book:<br>
 			From: <input type='date' name='startdate'>
 			To:<input type='date' name='endDate'><br>
+
 			<br><br>
-			<input id='requestButton' type='submit' value='Request Quote'>
 			<input id='bookButton' type='submit' value='Book'>
+		</form>
+		<form action='requestQuote' method='GET'>
+			<input type='submit' value='Request Quote'>
 		</form>
 	</div>
 </body>
