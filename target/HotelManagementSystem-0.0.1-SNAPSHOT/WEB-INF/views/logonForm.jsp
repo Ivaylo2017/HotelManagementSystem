@@ -7,20 +7,21 @@
 <title>Logon</title>
 </head>
 <body>
-	<h2>Logon</h2>
-	<div class="form">
-	
-		<label for ="username">Username:</label>
-		<input type="text" name="username"/>
-		<br>
-		<label for="pass">Password:</label>
-		<input type="password" name="pass"/>
-		<br>
-			<form action="accountHome" method="POST">
-		<input type="submit" name="login" value="Login"/>
-		</form>
-		<form action="register" method="POST">
-		<input type="submit" name="register" value="Register"/> 
+	<h2>Logon Form</h2>
+	<% if (request.getAttribute("message") != null){
+		out.print("<span style='color:red'>" + request.getAttribute("message") + "</span>");
+	}%>
+	<div class="container">
+		<form action="accountHome" method="POST">
+			<label for ="username">Username:</label>
+			<input type="text" name="username"/>
+			<br><br>
+			<label for="pass">Password:</label>
+			<input type="password" name="pass"/>
+			<input type="hidden" name="user_type" value="customer"/>
+			<br><br>
+			<input type="submit" name="login" value="Login"/>
+			<span><input type="submit" name="register" value="Register"/> </span>
 		</form>
 	</div>
 </body>

@@ -40,7 +40,13 @@ public class SecurityDAO extends OracleConnection{
 //		return userDao.findAllUsers();
 //	}
 
-	public boolean isUserNameUnique(String userName) {
+	/**
+	 * 
+	 * @param userName
+	 * @return Boolean
+	 * Method determines if username is already in db
+	 */
+	public Boolean isUserNameUnique(String userName) {
 		getConnection();
 		String sql = "SELECT * FROM \"SECURITY\" WHERE username = ?";
 		
@@ -60,10 +66,21 @@ public class SecurityDAO extends OracleConnection{
 		return true;
 	}
 	
+	/**
+	 * 
+	 * @param userName
+	 * @param unencryptedPass
+	 * @return Boolean
+	 * Determine if encrypted password hash for provided username is equivalent to plain text string 
+	 * received from logon form 
+	 * Method checks if userName is already in db i.e. if teh ResultSet has any entries
+	 */
 	public Boolean passwordsMatch( String userName, String unencryptedPass) {
-		getConnection();
+		
+		Boolean match = false;
 		String pass  = null;
 		String sql = "SELECT pass FROM \"SECURITY\" WHERE username = ?";
+		getConnection();
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, userName);
@@ -71,14 +88,14 @@ public class SecurityDAO extends OracleConnection{
 			if(rs.next()) {
 				pass = rs.getString("pass");
 			}
-			if ( pass.equals("{bcrypt}" +passwordEncoder.encode(unencryptedPass))) {
-				return true;
+			if ( passwordEncoder.matches(pass,"{bcrypt}" + passwordEncoder.encode(unencryptedPass))) {
+				match = true;
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			closeConn();
 		}
-		return false;
+		return match;
 	}
 }
