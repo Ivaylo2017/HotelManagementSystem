@@ -1,6 +1,8 @@
 package com.langmore.DAO;
 
 import java.sql.SQLException;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.langmore.model.Security;
 
@@ -10,6 +12,7 @@ public class SecurityDAO extends OracleConnection{
 	private PasswordEncoder passwordEncoder;
 
 	public int saveSecurity(Security security) {
+		
 		getConnection();
 		int secId = -1;
 		security.setPass(passwordEncoder.encode(security.getPass()));
@@ -78,8 +81,9 @@ public class SecurityDAO extends OracleConnection{
 	public Boolean passwordsMatch( String userName, String unencryptedPass) {
 		
 		Boolean match = false;
-		String pass  = null;
+		String pass  = "";
 		String sql = "SELECT pass FROM \"SECURITY\" WHERE username = ?";
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
 		getConnection();
 		try {
 			ps = conn.prepareStatement(sql);
@@ -88,7 +92,9 @@ public class SecurityDAO extends OracleConnection{
 			if(rs.next()) {
 				pass = rs.getString("pass");
 			}
-			if ( passwordEncoder.matches(pass,"{bcrypt}" + passwordEncoder.encode(unencryptedPass))) {
+			System.out.println(pass);
+			System.out.println(passwordEncoder.encode(unencryptedPass));
+			if  (passwordEncoder.matches(unencryptedPass, pass.substring(8))) { // (pass.equals(unencryptedPass)) {//
 				match = true;
 			}
 		}catch(SQLException e) {

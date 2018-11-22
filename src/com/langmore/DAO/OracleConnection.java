@@ -36,8 +36,8 @@ public class OracleConnection{
 			
 			try {
 				conn = DriverManager.getConnection(prop.getProperty("url"), 
-														 prop.getProperty("user"), 
-														 prop.getProperty("password"));
+													prop.getProperty("user"), 
+													prop.getProperty("password"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

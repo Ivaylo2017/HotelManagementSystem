@@ -3,6 +3,7 @@ com\langmore\DAO\RoomsDAO.class
 com\langmore\model\RestaurantTable.class
 com\langmore\DAOI\UserDaoI.class
 com\langmore\model\Order.class
+com\langmore\services\EmailSender.class
 com\langmore\DAO\InventoryDAO.class
 com\langmore\model\JBcrypt.class
 com\langmore\model\OrderDetails.class

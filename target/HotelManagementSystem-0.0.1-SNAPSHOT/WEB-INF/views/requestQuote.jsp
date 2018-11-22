@@ -14,8 +14,8 @@
 	</p>
 	<br>
 	<form action="processQuote" method="POST">
-		<label for="email" >Your Email:</label><input type="text" id="email" name="emial" placeholder="Enter Your Email">
-		<label for="description">Request:</label><input type="textarea" id="description" name="desc">
+		<label for="email" >Your Email:</label><input type="text" id="email" name="email" placeholder="Enter Your Email">
+		<label for="description">Request:</label><input type="textarea" id="description" name="desc" width="250px" height ="400px">
 		<div><input type="submit" name="submit" value="Submit"/></div>	
 	 </form>
 	</div>

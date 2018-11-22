@@ -25,6 +25,11 @@
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  <error-page>
+    <error-code>500</error-code> <!-- All Internal Server Errors - alternative for Spring Security -->
+    <location>/error.htm</location>
+</error-page>
+  
 <!--   <filter> -->
 <!--   	<filter-name>springSecurityFilterChain</filter-name> -->
 <!--   	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
